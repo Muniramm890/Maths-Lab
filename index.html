@@ -281,6 +281,54 @@ footer b{ color:var(--text-mid); }
   .pill-stat{ display:none; }
   .hero{ padding:56px 18px 12px; }
 }
+
+
+
+/* ---------- footer ---------- */
+footer{
+  position:relative;
+  border-top:1px solid var(--line-soft);
+  padding:38px 24px 34px;
+  text-align:center;
+  color:var(--text-low);
+  font-family:var(--font-mono); font-size:11.5px;
+}
+footer .footer-stats{
+  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+  margin-bottom:16px;
+}
+footer .footer-stats span{
+  display:flex; align-items:center; gap:6px;
+  border:1px solid var(--line); background:var(--bg-panel-2);
+  padding:6px 13px; border-radius:999px;
+}
+footer .footer-stats i{ color:var(--cyan); font-size:11px; }
+footer .footer-line{ color:var(--text-mid); }
+footer .footer-line b{ color:var(--text-hi); font-weight:600; }
+footer .footer-credit{
+  margin-top:10px; font-family:var(--font-body); font-size:12px; color:var(--text-low);
+}
+footer .footer-credit .grad-name{
+  font-family:var(--font-display); font-weight:600; font-size:13px;
+  background:linear-gradient(120deg, var(--cyan), var(--violet) 60%, var(--pink));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+footer .footer-credit a{
+  color:var(--text-mid); border-bottom:1px dotted var(--line); transition:color .15s ease;
+}
+footer .footer-credit a:hover{ color:var(--cyan); }
+footer .footer-cred-line{
+  display:inline-block; margin-top:4px;
+  font-family:var(--font-body); font-size:11px; color:var(--text-low);
+  letter-spacing:0.2px;
+}
+footer .footer-tagline{
+  font-family:var(--font-display); font-style:italic; font-weight:500;
+  font-size:14.5px; line-height:1.6; letter-spacing:0.1px;
+  max-width:560px; margin:0 auto 22px;
+  background:linear-gradient(120deg, var(--cyan), var(--violet) 55%, var(--pink));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
 </style>
 </head>
 <body>
@@ -325,12 +373,16 @@ footer b{ color:var(--text-mid); }
       <span class="filter-tag" data-filter="trigonometry"><i class="fa-solid fa-wave-square"></i> Trigonometry</span>
       <span class="filter-tag" data-filter="mensuration"><i class="fa-solid fa-cube"></i> Mensuration</span>
       <span class="filter-tag" data-filter="probability"><i class="fa-solid fa-dice"></i> Probability</span>
+      <span class="filter-tag" data-filter="algebra"><i class="fa-solid fa-location-crosshairs"></i> Algebra</span>
+      <span class="filter-tag" data-filter="calculus"><i class="fa-solid fa-square-root-variable"></i> Calculus</span>
+      
+      
     </div>
   </div>
 
   <div class="results-meta">
     <span id="resultsCount">Showing 4 of 4 simulations</span>
-    <span>MathLab Portal · v1.0</span>
+    <span>MathLab Portal </span>
   </div>
 
   <!-- ============================================================
@@ -359,7 +411,7 @@ footer b{ color:var(--text-mid); }
   <div class="grid" id="grid">
 
     <!-- ============ CARD TEMPLATE — COPY FROM HERE ============ -->
-    <div class="card" data-category="geometry" data-status="soon" data-title="Midpoint Theorem &amp; BPT" data-desc="Drag the vertices of a triangle and watch the Midpoint Theorem and Basic Proportionality Theorem hold true in real time.">
+    <div class="card" data-category="geometry" data-status="live" data-title="Midpoint Theorem &amp; BPT" data-desc="Drag the vertices of a triangle and watch the Midpoint Theorem and Basic Proportionality Theorem hold true in real time.">
       <div class="card-top">
         <div class="card-icon" style="--tag:var(--cyan)"><i class="fa-solid fa-draw-polygon"></i></div>
         <span class="card-tag" style="--tag:var(--cyan)">Geometry</span>
@@ -367,13 +419,13 @@ footer b{ color:var(--text-mid); }
       <h3 class="card-title">Midpoint Theorem &amp; BPT</h3>
       <p class="card-desc">Drag the vertices of a triangle and watch the Midpoint Theorem and Basic Proportionality Theorem hold true in real time.</p>
       <div class="card-foot">
-        <span class="card-status"><span class="dot"></span>Coming soon</span>
-        <span class="card-btn disabled">Coming Soon <i class="fa-solid fa-arrow-right"></i></span>
+       <span class="card-status"><span class="dot"></span>Live</span>
+        <a class="card-btn" href="https://bpt-midbpt.netlify.app">Launch Simulation <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
     <!-- ============ CARD TEMPLATE — COPY TO HERE ============ -->
 
-    <div class="card" data-category="trigonometry" data-status="soon" data-title="Heights &amp; Distances" data-desc="Adjust angle of elevation and observer distance to see how trigonometric ratios solve real height and distance problems.">
+    <div class="card" data-category="trigonometry" data-status="live" data-title="Heights &amp; Distances" data-desc="Adjust angle of elevation and observer distance to see how trigonometric ratios solve real height and distance problems.">
       <div class="card-top">
         <div class="card-icon" style="--tag:var(--violet)"><i class="fa-solid fa-mountain-sun"></i></div>
         <span class="card-tag" style="--tag:var(--violet)">Trigonometry</span>
@@ -386,7 +438,7 @@ footer b{ color:var(--text-mid); }
       </div>
     </div>
 
-    <div class="card" data-category="mensuration" data-status="soon" data-title="Cylinder vs Cone Volume" data-desc="Morph a cylinder into a cone with matching base and height to build real intuition for the ⅓ volume relationship.">
+    <div class="card" data-category="mensuration" data-status="live" data-title="Cylinder vs Cone Volume" data-desc="Morph a cylinder into a cone with matching base and height to build real intuition for the ⅓ volume relationship.">
       <div class="card-top">
         <div class="card-icon" style="--tag:var(--amber)"><i class="fa-solid fa-cube"></i></div>
         <span class="card-tag" style="--tag:var(--amber)">Mensuration</span>
@@ -412,6 +464,35 @@ footer b{ color:var(--text-mid); }
       </div>
     </div>
 
+  
+  
+    <div class="card" data-category="algebra" data-status="live" data-title="Coordinate Geometry" data-desc="Section formula, midpoint, slope, area of polygon and much more — all interactive on a draggable Cartesian plane.">
+      <div class="card-top">
+        <div class="card-icon" style="--tag:var(--cyan)"><i class="fa-solid fa-location-crosshairs"></i></div>
+        <span class="card-tag" style="--tag:var(--cyan)">Algebra</span>
+      </div>
+      <h3 class="card-title">Coordinate Geometry</h3>
+      <p class="card-desc">Section formula, midpoint, slope, area of polygon and much more — all interactive on a draggable Cartesian plane.</p>
+      <div class="card-foot">
+        <span class="card-status"><span class="dot"></span>Live</span>
+        <a class="card-btn" href="https://co-ordinate-geometry.netlify.app">Launch Simulation <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+   <div class="card" data-category="calculus" data-status="live" data-title="Derivatives &amp; Integration Lab" data-desc="Watch a secant line collapse into the exact tangent, and Riemann sum rectangles converge into the exact definite integral — with full first-principles derivations.">
+      <div class="card-top">
+        <div class="card-icon" style="--tag:var(--violet)"><i class="fa-solid fa-square-root-variable"></i></div>
+        <span class="card-tag" style="--tag:var(--violet)">Calculus</span>
+      </div>
+      <h3 class="card-title">Derivatives &amp; Integration Lab</h3>
+      <p class="card-desc">Watch a secant line collapse into the exact tangent, and Riemann sum rectangles converge into the exact definite integral — with full first-principles derivations.</p>
+      <div class="card-foot">
+        <span class="card-status"><span class="dot"></span>Live</span>
+        <a class="card-btn" href="https://calculus-derivative-integration.netlify.app/">Launch Simulation <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+   </div>
+
+
   </div>
 
   <div class="empty-state" id="emptyState">
@@ -420,9 +501,22 @@ footer b{ color:var(--text-mid); }
     <span>Try a different search term or clear the active category filter.</span>
   </div>
 
-  <footer>
-    Built with vanilla HTML, CSS &amp; JavaScript · <b>50+ modules ready to scale</b> · every card links to one real page
-  </footer>
+<footer>
+  <p class="footer-tagline">"Every equation is a story waiting to be visualized — mathematics rewards those who dare to see it move."</p>
+  <div class="footer-stats">
+    <span><i class="fa-solid fa-layer-group"></i> 6 live modules</span>
+    <span><i class="fa-solid fa-bolt"></i> vanilla HTML · CSS · JS</span>
+    <span><i class="fa-solid fa-infinity"></i> scales to 50+</span>
+  </div>
+  <div class="footer-line">Every card links to one real, working simulation — no dead ends.</div>
+  <div class="footer-credit">
+    Designed &amp; built by <span class="grad-name">Muni Ram Meena</span>
+    <br>
+    <span class="footer-cred-line">M.Sc. Mathematics (Delhi University) · B.Sc. (Rajasthan University) · B.Ed. (RIE Ajmer)</span>
+    <br>
+    <span class="footer-cred-line">TGT Mathematics, Rysen Group of Schools</span>
+  </div>
+</footer>
 
 </div>
 
