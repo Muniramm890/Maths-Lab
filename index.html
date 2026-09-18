@@ -1,69 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Component Fetching ke liye Head content yahan manual daalna behtar hota hai for instant loading -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Lab Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Fonts matching your CSS tokens -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Background Canvas -->
+    <!-- Animated Backdrop matching your CSS -->
     <canvas id="bgCanvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
 
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
+    <!-- Shell wrapper required by your CSS -->
+    <div class="shell">
+        
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
 
-    <!-- Main Content -->
-    <main>
-        <section class="hero">
-            <h1>Interactive Math Lab</h1>
-            <p>Explore mathematics through interactive simulations.</p>
-        </section>
+        <main>
+            <section class="hero">
+                <div class="eyebrow"><i class="fa-solid fa-flask"></i> Digital Maths</div>
+                <h1>Interactive <span class="grad">Math Lab</span></h1>
+                <p>Explore mathematics through highly interactive, visually driven simulations and dynamic graphical engines.</p>
+            </section>
 
-        <!-- Controls (Search & Filter) -->
-        <section class="controls">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search simulations (e.g., Geometry)...">
+            <!-- Controls (Search & Filter) -->
+            <section class="controls">
+                <div class="search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Search simulations (e.g., Geometry)...">
+                    <span class="kbd">⌘K</span>
+                </div>
+                
+                <div class="filters">
+                    <button class="filter-tag active" data-filter="all"><i class="fa-solid fa-layer-group"></i> All</button>
+                    <button class="filter-tag" data-filter="geometry"><i class="fa-solid fa-shapes"></i> Geometry</button>
+                    <button class="filter-tag" data-filter="algebra"><i class="fa-solid fa-wave-square"></i> Algebra</button>
+                    <button class="filter-tag" data-filter="calculus"><i class="fa-solid fa-chart-line"></i> Calculus</button>
+                </div>
+            </section>
+
+            <div class="results-meta">
+                <span>Showing <b id="result-count">4</b> simulations</span>
+                <span>Sorted by: Relevance</span>
             </div>
-            <div class="filter-bar">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="geometry">Geometry</button>
-                <button class="filter-btn" data-filter="algebra">Algebra</button>
-                <button class="filter-btn" data-filter="calculus">Calculus</button>
+
+            <!-- Simulations Grid -->
+            <section class="grid" id="simulations">
+                
+                <!-- Card 1 -->
+                <div class="card" data-category="geometry">
+                    <div class="card-top">
+                        <div class="card-icon" style="--tag: var(--cyan);"><i class="fa-solid fa-shapes"></i></div>
+                        <div class="card-tag" style="--tag: var(--cyan);">Geometry</div>
+                    </div>
+                    <h3 class="card-title">Basic Proportionality Theorem</h3>
+                    <p class="card-desc">Understand BPT with interactive triangles and real-time ratio calculations.</p>
+                    <div class="card-foot">
+                        <div class="card-status"><div class="dot"></div> Active</div>
+                        <a href="sims/bpt.html" class="card-btn">Launch <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" data-category="geometry">
+                    <div class="card-top">
+                        <div class="card-icon" style="--tag: var(--violet);"><i class="fa-solid fa-play"></i></div>
+                        <div class="card-tag" style="--tag: var(--violet);">Geometry</div>
+                    </div>
+                    <h3 class="card-title">Pythagoras Theorem</h3>
+                    <p class="card-desc">Visual proof of the Pythagoras theorem using area models.</p>
+                    <div class="card-foot">
+                        <div class="card-status"><div class="dot"></div> Active</div>
+                        <a href="sims/pythagoras.html" class="card-btn">Launch <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" data-category="algebra">
+                    <div class="card-top">
+                        <div class="card-icon" style="--tag: var(--amber);"><i class="fa-solid fa-wave-square"></i></div>
+                        <div class="card-tag" style="--tag: var(--amber);">Algebra</div>
+                    </div>
+                    <h3 class="card-title">Quadratic Equations</h3>
+                    <p class="card-desc">Graphing parabolas and finding roots interactively by adjusting coefficients.</p>
+                    <div class="card-foot">
+                        <div class="card-status"><div class="dot"></div> Active</div>
+                        <a href="sims/quadratic.html" class="card-btn">Launch <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" data-category="calculus">
+                    <div class="card-top">
+                        <div class="card-icon" style="--tag: var(--pink);"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="card-tag" style="--tag: var(--pink);">Calculus</div>
+                    </div>
+                    <h3 class="card-title">Derivatives Visualizer</h3>
+                    <p class="card-desc">See slopes and tangent lines generated in real-time as you drag points.</p>
+                    <div class="card-foot">
+                        <div class="card-status"><div class="dot"></div> Active</div>
+                        <a href="sims/derivatives.html" class="card-btn">Launch <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Empty State (Used by JS if search finds nothing) -->
+            <div class="empty-state" id="empty-state">
+                <i class="fa-solid fa-ghost"></i>
+                <b>No modules found</b>
+                <span>Try adjusting your search or filters to find what you're looking for.</span>
             </div>
-        </section>
 
-        <!-- Simulations Grid -->
-        <section class="grid" id="simulations">
-            <a href="sims/bpt.html" class="sim-card" data-category="geometry">
-                <i class="fa-solid fa-shapes"></i>
-                <h3>Basic Proportionality Theorem</h3>
-                <p>Understand BPT with interactive triangles.</p>
-            </a>
-            <a href="sims/pythagoras.html" class="sim-card" data-category="geometry">
-                <i class="fa-solid fa-play"></i>
-                <h3>Pythagoras Theorem</h3>
-                <p>Visual proof of the Pythagoras theorem.</p>
-            </a>
-            <a href="sims/quadratic.html" class="sim-card" data-category="algebra">
-                <i class="fa-solid fa-wave-square"></i>
-                <h3>Quadratic Equations</h3>
-                <p>Graphing and finding roots interactively.</p>
-            </a>
-            <a href="sims/derivatives.html" class="sim-card" data-category="calculus">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Derivatives Visualizer</h3>
-                <p>See slopes and tangents in real-time.</p>
-            </a>
-        </section>
-    </main>
+        </main>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+        <!-- Footer Placeholder -->
+        <div id="footer-placeholder"></div>
+        
+    </div> <!-- End Shell -->
 
     <!-- Script to Load Components (Header/Footer) -->
     <script>
