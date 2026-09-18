@@ -1,56 +1,86 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
+    <!-- Component Fetching ke liye Head content yahan manual daalna behtar hota hai for instant loading -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Virtual Math Lab Portfolio</title>
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Link the CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Lab Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Header will load here automatically -->
+    <!-- Background Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-    <div class="shell">
-        <!-- HERO SECTION -->
+    <!-- Main Content -->
+    <main>
         <section class="hero">
-            <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i>&nbsp; interactive &middot; visual &middot; hands-on</span>
-            <h1>Explore <span class="grad">Mathematics</span> Interactively</h1>
-            <p>A growing collection of visual simulations...</p>
+            <h1>Interactive Math Lab</h1>
+            <p>Explore mathematics through interactive simulations.</p>
         </section>
 
-        <!-- CONTROLS & GRID -->
-        <div class="controls">
-            <!-- Search Input and Filters paste here -->
-        </div>
+        <!-- Controls (Search & Filter) -->
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search simulations (e.g., Geometry)...">
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="geometry">Geometry</button>
+                <button class="filter-btn" data-filter="algebra">Algebra</button>
+                <button class="filter-btn" data-filter="calculus">Calculus</button>
+            </div>
+        </section>
 
-        <div class="results-meta">
-            <span id="resultsCount">Showing 4 of 4 simulations</span>
-            <span>MathLab Portal </span>
-        </div>
+        <!-- Simulations Grid -->
+        <section class="grid" id="simulations">
+            <a href="sims/bpt.html" class="sim-card" data-category="geometry">
+                <i class="fa-solid fa-shapes"></i>
+                <h3>Basic Proportionality Theorem</h3>
+                <p>Understand BPT with interactive triangles.</p>
+            </a>
+            <a href="sims/pythagoras.html" class="sim-card" data-category="geometry">
+                <i class="fa-solid fa-play"></i>
+                <h3>Pythagoras Theorem</h3>
+                <p>Visual proof of the Pythagoras theorem.</p>
+            </a>
+            <a href="sims/quadratic.html" class="sim-card" data-category="algebra">
+                <i class="fa-solid fa-wave-square"></i>
+                <h3>Quadratic Equations</h3>
+                <p>Graphing and finding roots interactively.</p>
+            </a>
+            <a href="sims/derivatives.html" class="sim-card" data-category="calculus">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Derivatives Visualizer</h3>
+                <p>See slopes and tangents in real-time.</p>
+            </a>
+        </section>
+    </main>
 
-        <div class="grid" id="grid">
-            <!-- Card 1, 2, 3 etc. paste here -->
-        </div>
-
-        <div class="empty-state" id="emptyState">
-            <i class="fa-solid fa-magnifying-glass-minus"></i>
-            <b>No simulations found</b>
-            <span>Try a different search term...</span>
-        </div>
-    </div>
-
-    <!-- Footer will load here automatically -->
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
-    <script src="./assets/js/loader.js"></script>
-    <script src="./assets/js/search-filter.js"></script>
+    <!-- Script to Load Components (Header/Footer) -->
+    <script>
+        // Header Load
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        
+        // Footer Load
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+
+    <!-- External JS Scripts -->
+    <script src="assets/js/canvas.js"></script>
+    <script src="assets/js/search-filter.js"></script>
+
 </body>
 </html>
